@@ -17,11 +17,20 @@ $(document).ready(function () {
         });
     });
 
+    $("#buscarBoton").click(function () {
+        
+        var elements = $('p.nombreProducto');
+
+        elements.each(function (index, domElement) {
+            var $element = $(domElement);
+
+            var buscarProducto = $("#buscarProducto").val();
+
+            var cadena = $element.text().toUpperCase();
+            if (cadena.includes(buscarProducto.toUpperCase()))
+                $element.parent().parent().show();
+            else $element.parent().parent().hide();
+        });
+    });
+
 });
-
-function buscarProducto() {
-    var buscarProducto = document.getElementById("buscarProducto");
-    alert("Valor de la busqueda es: " + buscarProducto.value);
-}
-
-
